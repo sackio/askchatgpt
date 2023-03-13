@@ -1,0 +1,29 @@
+{
+  "name": "askchatgpt",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "$INIT_CWD/scripts/build-extension chrome; $INIT_CWD/scripts/build-extension firefox;"
+  , "client": "cp $INIT_CWD/../scripts/chatgpt.js $INIT_CWD/client"
+  },
+  "dependencies": {
+    "async": "~3.2.0",
+    "delay": "~5.0.0",
+    "dotenv": "~8.2.0",
+    "fast-csv": "^4.3.6",
+    "fs-extra": "~10.0.1",
+    "klaw": "4.0.1",
+    "lodash": "~4.17.21",
+    "moment": "~2.24.0",
+    "mongodb": "~4.1.0",
+    "node-fetch": "~2.6.1",
+    "optionator": "~0.8.3",
+    "prettysize": "~2.0.0",
+    "tmp": "~0.2.1",
+    "archiver": "~5.3.1",
+    "webextension-polyfill": "*"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

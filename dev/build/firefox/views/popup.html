@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AskGPT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src * data:; font-src * data:; connect-src 'self';">
+
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/vendor.min.css">
+    <link rel="stylesheet" href="/assets/css/popup.css">
+  </head>
+  <body>
+    <div class="container p-2 mb-4">
+      <ul class="nav nav-tabs d-none" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="question-tab" data-bs-toggle="tab" data-bs-target="#question-tab-pane" type="button" role="tab" aria-controls="question-tab-pane" aria-selected="true">Ask question</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="task-tab" data-bs-toggle="tab" data-bs-target="#task-tab-pane" type="button" role="tab" aria-controls="task-tab-pane" aria-selected="false" disabled>Perform task</button>
+        </li>
+      </ul>
+      <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" id="question-tab-pane" role="tabpanel" aria-labelledby="question-tab" tabindex="0">
+          <div class="mb-3">        
+            <div class="d-flex align-items-center justify-content-start">
+              <label for="prompt-templates" class="form-label mb-0 me-3">Ask a question:</label>
+              <select class="form-select w-auto" id="prompt-templates">
+              </select>
+            </div>
+
+            <textarea class="form-control noresize mt-2" id="prompt" rows="3" placeholder="or enter a custom prompt"></textarea>
+
+            <div class="d-flex align-items-center justify-content-start mt-2">
+              <label for="format-templates" class="form-label mb-0 me-3">Answer Format:</label>
+              <select class="form-select w-auto" id="format-templates">
+                <option value=""></option>
+              </select>
+            </div>       
+
+            <div class="ms-auto mt-2">
+              <button class="btn btn-primary w-100" id="ask-chatgpt">
+                <div class="d-flex align-items-center justify-content-center">
+                  Ask ChatGPT <div id="loader" class="ms-2 d-none"></div>
+                </div>
+              </button>          
+              <div id="conversation-status" class="form-text text-muted my-2"></div>              
+            </div>
+     
+          </div>
+          <div id="answer" class="form-control d-none"></div>
+        </div>
+        <div class="tab-pane fade" id="task-tab-pane" role="tabpanel" aria-labelledby="task-tab" tabindex="0"></div>
+      </div>
+    </div>
+
+    <script src="/assets/js/browser-polyfill.min.js"></script>
+    <script src="/assets/js/lodash.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>    
+    <script src="/assets/js/bootstrap.min.js"></script>    
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/chatgpt.js"></script>        
+    <script src="/scripts/content.js"></script>    
+    <script src="/scripts/popup.js"></script>
+  </body>
+</html>

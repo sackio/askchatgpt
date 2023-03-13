@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+  echo "Usage: $0 [chrome|firefox]"
+  exit 1
+fi
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+TOPDIR="$DIR/../.."
+BUILDDIR="$DIR/../build/$1"
+ZIPPATH="$DIR/../build/askgpt-$1.zip"
+
+rm -rf "$BUILDDIR"
+rm "$ZIPPATH"
+
+mkdir -p "$BUILDDIR"
+cp -Rf "$TOPDIR/assets" "$BUILDDIR"
+cp -Rf "$TOPDIR/scripts" "$BUILDDIR"
+cp -Rf "$TOPDIR/views" "$BUILDDIR"
+cp -Rf "$TOPDIR/manifest.$1.json" "$BUILDDIR/manifest.json"
+
+node "$DIR/zip-build" -d "$BUILDDIR" -o "$ZIPPATH"
